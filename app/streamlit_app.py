@@ -17,10 +17,16 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 
-from .db import SessionLocal, init_db
-from .ingest import ingest_group_sync
-from .models import ArxivMatch, Paper, Venue
-from .services.proceedings_client import search_proceedings_sync
+if __package__:
+    from .db import SessionLocal, init_db
+    from .ingest import ingest_group_sync
+    from .models import ArxivMatch, Paper, Venue
+    from .services.proceedings_client import search_proceedings_sync
+else:
+    from app.db import SessionLocal, init_db
+    from app.ingest import ingest_group_sync
+    from app.models import ArxivMatch, Paper, Venue
+    from app.services.proceedings_client import search_proceedings_sync
 
 
 st.set_page_config(page_title="OpenReview Filter", layout="wide")
