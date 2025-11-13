@@ -9,7 +9,12 @@ import httpx
 from ..config import settings
 
 
-DEFAULT_INVITATIONS = ["Blind_Submission", "Submission"]
+DEFAULT_INVITATIONS = [
+    "Blind_Submission",
+    "Submission",
+    "Active_Submission",
+    "Active_Submissions",
+]
 FALLBACK_INVITATIONS = ["Submission"]
 
 
